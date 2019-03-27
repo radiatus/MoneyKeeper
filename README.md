@@ -8,8 +8,9 @@ Miro RealTime board (WorkFlow): [link](https://realtimeboard.com/app/board/o9J_k
 
 Документы:
 1. [Введение docx](./Documents/MoneyKeeper.docx)
-1. [Введение pdf](./Documents/MoneyKeeper.pdf)
-2. [ТЗ doc](./Documents/TZ.doc)
-3. [ТЗ pdf](./Documents/TZ.pdf)
-4. [Диаграммы img](./Diagrams/img/)
-5. [Диаграммы src](./Diagrams/src/)
+2. [Введение pdf](./Documents/MoneyKeeper.pdf)
+3. [ТЗ doc](./Documents/TZ.doc)
+4. [ТЗ pdf](./Documents/TZ.pdf)
+5. [Диаграммы img](./Diagrams/img/)
+6. [Диаграммы src](./Diagrams/src/)
+7. [Схема архитектуры приложения](./Diagrams/img/Architecture.png)
