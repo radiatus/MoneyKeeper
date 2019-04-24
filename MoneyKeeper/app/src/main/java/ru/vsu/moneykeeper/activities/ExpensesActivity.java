@@ -1,7 +1,9 @@
-package ru.vsu.moneykeeper;
+package ru.vsu.moneykeeper.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import ru.vsu.moneykeeper.R;
 
 public class ExpensesActivity extends AppCompatActivity {
 
