@@ -9,12 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".IncomesActivity"></activity>
-        <activity android:name=".HistoryActivity" />
-        <activity android:name=".ConstraintsActivity" />
-        <activity android:name=".CategoriesActivity" />
-        <activity android:name=".ExpensesActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.IncomesActivity"></activity>
+        <activity android:name=".activities.HistoryActivity" />
+        <activity android:name=".activities.ConstraintsActivity" />
+        <activity android:name=".activities.CategoriesActivity" />
+        <activity android:name=".activities.ExpensesActivity" />
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

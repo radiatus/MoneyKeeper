@@ -1,13 +1,15 @@
-package ru.vsu.moneykeeper;
+package ru.vsu.moneykeeper.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class HistoryActivity extends AppCompatActivity {
+import ru.vsu.moneykeeper.R;
+
+public class ConstraintsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_history);
+        setContentView(R.layout.activity_constraints);
     }
 }
