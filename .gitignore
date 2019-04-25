@@ -73,4 +73,5 @@ settings.gradle
 gradle/
 androidTest/
 test/
+.idea/
 proguard-rules.pro
