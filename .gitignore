@@ -63,3 +63,14 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
+
+# gradle
+build.gradle
+gradle.properties
+gradlew
+gradlew.bat
+settings.gradle
+gradle/
+androidTest/
+test/
+proguard-rules.pro
