@@ -16,4 +16,4 @@ Miro RealTime board (WorkFlow): [link](https://realtimeboard.com/app/board/o9J_k
 7. [Схема архитектуры приложения](./Diagrams/img/Architecture.png)
 8. [Отчет по работе docx](./Documents/Otchet_po_rabote.docx)
 9. [Отчет по работе pdf](./Documents/Otchet_po_rabote.pdf)
-10. [Приложение] (./MoneyKeeper/)
+10. [Приложение](./MoneyKeeper/)
