@@ -1,5 +1,8 @@
 package ru.vsu.moneykeeper.Income.boundary;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +17,17 @@ public class IncomeService {
     }
 
     public List<Income> getAll(){
-        return null;
+        List<Income> result = new ArrayList<>();
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        Date date;
+        try {
+            date = format.parse("15-04-2019");
+            result.add(new Income(1L, "Взял взаймы", 1000F, date));
+            date = format.parse("01-05-2019");
+            result.add(new Income(1L, "Зарплата", 10000F, date));
+        } catch (ParseException e){
+        }
+        return result;
     }
 
     public Income get(Long Id){
