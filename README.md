@@ -7,8 +7,8 @@ Trello Board: [link](https://trello.com/b/ymq1o1vV)
 Miro RealTime board (WorkFlow): [link](https://realtimeboard.com/app/board/o9J_kxmUL8Q=/)
 
 Документы:
-1. [Курсовая docx](./Documents/MoneyKeeper.docx)
-2. [Курсовая pdf](./Documents/MoneyKeeper.pdf)
+1. [Курсовая docx](./Documents/Project.docx)
+2. [Курсовая pdf](./Documents/Project.pdf)
 3. [ТЗ doc](./Documents/TZ.doc)
 4. [ТЗ pdf](./Documents/TZ.pdf)
 5. [Диаграммы img](./Diagrams/img/)
