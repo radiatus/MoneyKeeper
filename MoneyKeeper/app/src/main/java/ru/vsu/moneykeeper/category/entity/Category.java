@@ -5,12 +5,12 @@ import java.util.Objects;
 public class Category {
     private Long Id;
     private String name;
-    private Long Constraint;
+    private Float Constraint;
 
     public Category() {
     }
 
-    public Category(Long id, String name, Long constraint) {
+    public Category(Long id, String name, Float constraint) {
         Id = id;
         this.name = name;
         Constraint = constraint;
@@ -32,11 +32,11 @@ public class Category {
         this.name = name;
     }
 
-    public Long getConstraint() {
+    public Float getConstraint() {
         return Constraint;
     }
 
-    public void setConstraint(Long constraint) {
+    public void setConstraint(Float constraint) {
         Constraint = constraint;
     }
 
@@ -51,5 +51,10 @@ public class Category {
     @Override
     public int hashCode() {
         return Objects.hash(Id);
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

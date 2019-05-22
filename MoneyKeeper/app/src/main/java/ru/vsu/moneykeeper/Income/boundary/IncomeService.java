@@ -1,5 +1,7 @@
 package ru.vsu.moneykeeper.Income.boundary;
 
+import android.content.Context;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -12,12 +14,12 @@ import ru.vsu.moneykeeper.dao.IncomeDAO;
 public class IncomeService {
     private IncomeDAO dao;
 
-    public IncomeService() {
-        dao = new IncomeDAO();
+    public IncomeService(Context context) {
+        dao = new IncomeDAO(context);
     }
 
     public List<Income> getAll(){
-        List<Income> result = new ArrayList<>();
+        /*List<Income> result = new ArrayList<>();
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
         Date date;
         try {
@@ -27,11 +29,12 @@ public class IncomeService {
             result.add(new Income(1L, "Зарплата", 10000F, date));
         } catch (ParseException e){
         }
-        return result;
+        return result;*/
+        return dao.findAll();
     }
 
-    public Income get(Long Id){
-        return null;
+    public Income get(Long id){
+        return dao.findById(id);
     }
 
     public List<Income> getLast(Date lastTime){
@@ -42,12 +45,12 @@ public class IncomeService {
         return null;
     }
 
-    public void delete(Long Id){
-
+    public void delete(Long id){
+        dao.delete(id);
     }
 
     public void add(Income income){
-
+        dao.insert(income);
     }
 
     public void update(Income income){
