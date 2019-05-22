@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutCompat;
-import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 
@@ -38,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
     private PieChart chart;
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        setData();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -45,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         chart.setUsePercentValues(true);
         chart.getDescription().setEnabled(false);
         chart.setDrawCenterText(true);
-        setData();
+        //setData();
 
         LinearLayoutCompat chartLayout = (LinearLayoutCompat)findViewById(R.id.chartLayout);
         chart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
@@ -96,8 +101,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void setData() {
         ArrayList<PieEntry> entries = new ArrayList<>();
-        expenseService = new ExpenseService();
-        incomeService = new IncomeService();
+        expenseService = new ExpenseService(this);
+        incomeService = new IncomeService(this);
 
         HashMap<Category, Float> category_sum = new HashMap<>();
         Float incomesSum = 0F;

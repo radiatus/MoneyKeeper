@@ -32,10 +32,10 @@ public class HistoryActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        historyService = new HistoryService();
+        historyService = new HistoryService(this);
 
         List<HistoryItem> list = historyService.getAll();
-        HistoryItemAdapter adapter = new HistoryItemAdapter(list);
+        HistoryItemAdapter adapter = new HistoryItemAdapter(list, this);
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
         recyclerView.setAdapter(adapter);
     }

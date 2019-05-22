@@ -1,5 +1,7 @@
 package ru.vsu.moneykeeper.history.boundary;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -18,10 +20,10 @@ public class HistoryService {
     private ExpenseService expenseService;
     private CategoryService categoryService;
 
-    public HistoryService() {
-        incomeService = new IncomeService();
-        expenseService = new ExpenseService();
-        categoryService = new CategoryService();
+    public HistoryService(Context context) {
+        incomeService = new IncomeService(context);
+        expenseService = new ExpenseService(context);
+        categoryService = new CategoryService(context);
     }
 
     public List<HistoryItem> getAll(){
@@ -44,6 +46,15 @@ public class HistoryService {
 
         return result;
     }
+
+    public void deleteItem(HistoryItem item){
+        if (item instanceof Expense) {
+            expenseService.delete(item.getId());
+        } else {
+            incomeService.delete(item.getId());
+        }
+    }
+
 
     public List<HistoryItem> getLast(Date lastTime){
         return null;

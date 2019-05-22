@@ -1,47 +1,65 @@
 package ru.vsu.moneykeeper.dao;
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
 import java.sql.ResultSet;
 import java.util.List;
 
-public abstract class DAO<T> {
+public abstract class DAO<T>{
     protected String tableName;
     protected List<String> attribute_names;
+    protected DBHelper dbHelper;
 
-    public DAO() {
+    protected class DBHelper extends SQLiteOpenHelper {
+
+        public DBHelper(Context context) {
+            // конструктор суперкласса
+            super(context, "myDB", null, 1);
+        }
+
+        @Override
+        public void onCreate(SQLiteDatabase db) {
+            // создаем таблицы с полями
+            db.execSQL("create table category ("
+                    + "id integer primary key autoincrement,"
+                    + "name text,"
+                    + "constr float" + ");");
+
+            db.execSQL("create table expense ("
+                    + "id integer primary key autoincrement,"
+                    + "categoryId integer,"
+                    + "sum float,"
+                    + "name text,"
+                    + "date long" + ");");
+
+            db.execSQL("create table income ("
+                    + "id integer primary key autoincrement,"
+                    + "sum float,"
+                    + "name text,"
+                    + "date long" + ");");
+        }
+
+        @Override
+        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+        }
     }
 
-    public List<T> findAll() {
-        return null;
+    public DAO(Context context) {
+        dbHelper = new DBHelper(context);
     }
 
-    public T findById(Long id) {
-        return null;
-    }
+    public abstract List<T> findAll();
 
-    public void insert(T newEntity) {
+    public abstract T findById(Long id);
 
-    }
+    public abstract void insert(T newEntity);
 
-    public void update(Long id, T changedEntity) {
+    public abstract void update(Long id, T changedEntity);
 
-    }
-
-    public void delete(Long id) {
-
-    }
-
-
-    private List<T> executeSelectQuery(String query)
-    {
-        return null;
-    }
-
-    private void executeUpdateQuery(String query)
-    {
-
-    }
-
-    protected abstract List<T> convertFrom(ResultSet resultSet) throws Exception;
-    protected abstract String getValuesForInsert(T entity);
-    protected abstract String getValuesForUpdate(T entity);
+    public abstract void delete(Long id);
 }
