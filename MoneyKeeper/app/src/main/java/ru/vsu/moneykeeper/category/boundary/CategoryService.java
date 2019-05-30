@@ -30,6 +30,6 @@ public class CategoryService {
     }
 
     public void update(Category category){
-
+        dao.update(category.getId(), category);
     }
 }
