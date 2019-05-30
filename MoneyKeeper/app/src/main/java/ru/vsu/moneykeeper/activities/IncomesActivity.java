@@ -6,6 +6,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.Date;
 
@@ -32,17 +33,32 @@ public class IncomesActivity extends AppCompatActivity {
 
         incomeService = new IncomeService(this);
 
-        nameEditText = (EditText)findViewById(R.id.incomeNameEditText);
-        valueEditText = (EditText)findViewById(R.id.incomeEditText);
+        nameEditText = (EditText) findViewById(R.id.incomeNameEditText);
+        valueEditText = (EditText) findViewById(R.id.incomeEditText);
         button = (Button) findViewById(R.id.addCategoryButton);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String name = nameEditText.getText().toString();
-                Float value = Float.valueOf(valueEditText.getText().toString());
+                String value_str = valueEditText.getText().toString();
                 Date date = new Date();
-                incomeService.add(new Income(null, name, value, date));
+
+                if (name.equals("")) {
+                    Toast toast = Toast.makeText(IncomesActivity.this,
+                            "Введите название", Toast.LENGTH_LONG);
+                    toast.show();
+                } else if (value_str.equals("") || value_str.equals("0")) {
+                    Toast toast = Toast.makeText(IncomesActivity.this,
+                            "Введите значение", Toast.LENGTH_LONG);
+                    toast.show();
+                } else {
+                    incomeService.add(new Income(null, name, Float.valueOf(value_str), date));
+                    Toast toast = Toast.makeText(IncomesActivity.this,
+                            "Доход добавлен", Toast.LENGTH_LONG);
+                    toast.show();
+                    finish();
+                }
             }
         });
 
