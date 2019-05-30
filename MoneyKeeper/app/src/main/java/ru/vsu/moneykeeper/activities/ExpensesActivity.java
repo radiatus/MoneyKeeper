@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.Date;
 import java.util.List;
@@ -70,9 +71,24 @@ public class ExpensesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String name = nameEditText.getText().toString();
-                Float value = Float.valueOf(valueEditText.getText().toString());
+                String value_str = valueEditText.getText().toString();
                 Date date = new Date();
-                expenseService.add(new Expense(null, name, value, date, category));
+
+                if (name.equals("")){
+                    Toast toast = Toast.makeText(ExpensesActivity.this,
+                            "Введите название", Toast.LENGTH_LONG);
+                    toast.show();
+                } else if (value_str.equals("") || value_str.equals("0")) {
+                    Toast toast = Toast.makeText(ExpensesActivity.this,
+                            "Введите значение", Toast.LENGTH_LONG);
+                    toast.show();
+                } else {
+                    expenseService.add(new Expense(null, name, Float.valueOf(value_str), date, category));
+                    Toast toast = Toast.makeText(ExpensesActivity.this,
+                            "Расход добавлен", Toast.LENGTH_LONG);
+                    toast.show();
+                    finish();
+                }
             }
         });
 

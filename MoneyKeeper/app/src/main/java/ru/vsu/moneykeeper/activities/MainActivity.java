@@ -171,6 +171,8 @@ public class MainActivity extends AppCompatActivity {
         chart.setData(data);
         chart.highlightValues(null);
 
+        chart.getLegend().setEnabled(false);
+
         chart.invalidate();
     }
 

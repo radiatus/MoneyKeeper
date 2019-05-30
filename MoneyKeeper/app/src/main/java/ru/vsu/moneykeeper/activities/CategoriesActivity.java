@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import ru.vsu.moneykeeper.R;
 import ru.vsu.moneykeeper.category.boundary.CategoryService;
@@ -37,7 +38,17 @@ public class CategoriesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String name = editText.getText().toString();
-                categoryService.add(new Category(null, name, 0F));
+                if (name.equals("")){
+                    Toast toast = Toast.makeText(CategoriesActivity.this,
+                            "Введите назване категории", Toast.LENGTH_LONG);
+                    toast.show();
+                } else {
+                    Toast toast = Toast.makeText(CategoriesActivity.this,
+                            "Категория добавлена", Toast.LENGTH_LONG);
+                    toast.show();
+                    categoryService.add(new Category(null, name, 0F));
+                    finish();
+                }
             }
         });
 
