@@ -3,6 +3,7 @@ package ru.vsu.moneykeeper.adapters;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -64,7 +66,6 @@ public class HistoryItemAdapter extends RecyclerView.Adapter<HistoryItemAdapter.
         TextView date;
         LinearLayout layout;
         ImageButton deleteButton;
-
         HistoryItem item;
 
         public HistoryItemHolder(@NonNull View itemView) {
@@ -80,7 +81,21 @@ public class HistoryItemAdapter extends RecyclerView.Adapter<HistoryItemAdapter.
             deleteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    String itemType;
+                    if (item instanceof Expense) {
+                        itemType = "Расход ";
+                    } else {
+                        itemType = "Доход ";
+                    }
+
+                    Toast toast = Toast.makeText(context,
+                            itemType + item.getName() + " удален", Toast.LENGTH_LONG);
+                    toast.show();
+
                     historyService.deleteItem(item);
+                    items.remove(item);
+                    notifyItemRemoved(getAdapterPosition());
+                    //notifyDataSetChanged();
 
                 }
             });
@@ -91,10 +106,10 @@ public class HistoryItemAdapter extends RecyclerView.Adapter<HistoryItemAdapter.
             name.setText(item.getName());
             value.setText(String.valueOf(item.getValue()));
             if (item instanceof Expense) {
-                layout.setBackgroundColor(Color.YELLOW);
+                layout.setBackgroundColor(ContextCompat.getColor(context, R.color.colorExpense));
                 category.setText(((Expense) item).getCategory().getName());
             } else {
-                layout.setBackgroundColor(Color.CYAN);
+                layout.setBackgroundColor(ContextCompat.getColor(context, R.color.colorIncome));
                 category.setText("Доход");
             }
             SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
