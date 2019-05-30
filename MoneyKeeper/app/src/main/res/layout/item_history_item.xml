@@ -4,7 +4,8 @@
     android:id="@+id/historyItemLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="16dp"
+    android:layout_margin="2dp"
+    android:padding="2dp"
     android:orientation="horizontal">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,31 +13,36 @@
         android:layout_weight="1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="8dp"
+        android:padding="1dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/historyItemName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/historyItemValue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/historyItemCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/historyItemDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
             android:textSize="20sp" />
 
     </LinearLayout>
