@@ -80,7 +80,14 @@ public class CategoryDAO extends DAO<Category> {
 
     @Override
     public void update(Long id, Category changedEntity) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues cv = new ContentValues();
 
+        cv.put("name", changedEntity.getName());
+        cv.put("constr", changedEntity.getConstraint());
+        // вставляем запись и получаем ее ID
+        long rowID = db.update("category", cv,"id = ?",
+                new String[] { id.toString() });
     }
 
     @Override

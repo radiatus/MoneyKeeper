@@ -45,7 +45,7 @@ public class ExpensesActivity extends AppCompatActivity {
         category = new Category();
 
         Spinner dropdown = findViewById(R.id.categoryExpenseSpinner);
-        List<Category> categoryList = categoryService.getAll();
+        final List<Category> categoryList = categoryService.getAll();
 
         final ArrayAdapter<Category> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_dropdown_item, categoryList);
@@ -84,12 +84,37 @@ public class ExpensesActivity extends AppCompatActivity {
                     toast.show();
                 } else {
                     expenseService.add(new Expense(null, name, Float.valueOf(value_str), date, category));
-                    Toast toast = Toast.makeText(ExpensesActivity.this,
-                            "Расход добавлен", Toast.LENGTH_LONG);
-                    toast.show();
+
+                    Float sum =  calcExpenseSum();
+                    if (category.getConstraint().equals(0F) || sum * 2 < category.getConstraint()){
+                        Toast toast = Toast.makeText(ExpensesActivity.this,
+                                "Расход добавлен", Toast.LENGTH_LONG);
+                        toast.show();
+                    } else if (sum < category.getConstraint()) {
+                        Toast toast = Toast.makeText(ExpensesActivity.this,
+                                "Пройдена половина порога категории " + category.getName(), Toast.LENGTH_LONG);
+                        toast.show();
+                    } else {
+                        Toast toast = Toast.makeText(ExpensesActivity.this,
+                                "Порог категории " + category.getName() + " пройден", Toast.LENGTH_LONG);
+                        toast.show();
+                    }
+
                     finish();
                 }
             }
+
+            private Float calcExpenseSum(){
+                Float sum = 0F;
+                for (Expense expense: expenseService.getAll())
+                {
+                    if (expense.getCategory().equals(category)){
+                        sum += expense.getValue();
+                    }
+                }
+                return sum;
+            }
+
         });
 
     }
