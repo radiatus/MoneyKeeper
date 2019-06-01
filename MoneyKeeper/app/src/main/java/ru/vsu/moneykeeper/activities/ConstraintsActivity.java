@@ -23,7 +23,8 @@ public class ConstraintsActivity extends AppCompatActivity {
 
     private Category category;
     private EditText EditText;
-    private Button button;
+    private Button buttonAdd;
+    private Button buttonDelete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,16 +59,16 @@ public class ConstraintsActivity extends AppCompatActivity {
             }
         });
 
-        EditText = (EditText)findViewById(R.id.constraintEditText);
+        EditText = (EditText) findViewById(R.id.constraintEditText);
 
-        button = (Button) findViewById(R.id.addConstraintButton);
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonAdd = (Button) findViewById(R.id.addConstraintButton);
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String str = EditText.getText().toString();
-                if (str.equals("")){
+                if (str.equals("")) {
                     Toast toast = Toast.makeText(ConstraintsActivity.this,
-                            "Введите значение. 0 - убрать порог", Toast.LENGTH_LONG);
+                            "Введите значение.", Toast.LENGTH_LONG);
                     toast.show();
                 } else {
                     Float value = Float.valueOf(str);
@@ -78,12 +79,22 @@ public class ConstraintsActivity extends AppCompatActivity {
                     toast.show();
                     finish();
                 }
-
-
             }
         });
 
+        buttonDelete = (Button) findViewById(R.id.deleteConstraintButton);
+        buttonDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                category.setConstraint(0F);
+                categoryService.update(category);
+                Toast toast = Toast.makeText(ConstraintsActivity.this,
+                        "Порог удален", Toast.LENGTH_LONG);
+                toast.show();
+                finish();
 
+            }
+        });
 
     }
 

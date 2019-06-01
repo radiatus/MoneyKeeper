@@ -92,6 +92,10 @@ public class CategoryDAO extends DAO<Category> {
 
     @Override
     public void delete(Long id) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues cv = new ContentValues();
 
+        db.delete("category", "id = ?",
+                new String[] { id.toString() });
     }
 }

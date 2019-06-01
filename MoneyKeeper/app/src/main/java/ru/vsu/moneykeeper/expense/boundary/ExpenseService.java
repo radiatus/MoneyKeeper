@@ -22,6 +22,11 @@ public class ExpenseService {
         categoryService = new CategoryService(context);
     }
 
+    public ExpenseService(Context context, CategoryService categoryService) {
+        dao = new ExpenseDAO(context);
+        this.categoryService = categoryService;
+    }
+
     public List<Expense> getAll(){
         /*List<Expense> result = new ArrayList<>();
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
