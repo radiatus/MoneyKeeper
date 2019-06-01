@@ -1,6 +1,10 @@
 # MoneyKeeper
 ## Общее описание
 Мобильное приложение для контроля расходов
+
+## Серверная часть приложения
+[link](https://github.com/Drawell/MoneyKeeperSpring)
+
 ## Ссылки
 Trello Board: [link](https://trello.com/b/ymq1o1vV)
 
