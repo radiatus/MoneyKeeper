@@ -81,11 +81,17 @@ public class CategoriesActivity extends AppCompatActivity {
         buttonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                categoryService.delete(category.getId());
-                Toast toast = Toast.makeText(CategoriesActivity.this,
-                        "Категория удалена", Toast.LENGTH_LONG);
-                toast.show();
-                finish();
+                if (category != null) {
+                    categoryService.delete(category.getId());
+                    Toast toast = Toast.makeText(CategoriesActivity.this,
+                            "Категория удалена", Toast.LENGTH_LONG);
+                    toast.show();
+                    finish();
+                } else {
+                    Toast toast = Toast.makeText(CategoriesActivity.this,
+                            "Выберете категорию", Toast.LENGTH_LONG);
+                    toast.show();
+                }
 
             }
         });
