@@ -38,7 +38,7 @@ public class ConstraintsActivity extends AppCompatActivity {
         }
 
         categoryService = new CategoryService(this);
-        category = new Category();
+        category = null;
 
         Spinner dropdown = findViewById(R.id.categoryConstraintSpinner);
         List<Category> categoryList = categoryService.getAll();
@@ -72,12 +72,18 @@ public class ConstraintsActivity extends AppCompatActivity {
                     toast.show();
                 } else {
                     Float value = Float.valueOf(str);
-                    category.setConstraint(value);
-                    categoryService.update(category);
-                    Toast toast = Toast.makeText(ConstraintsActivity.this,
-                            "Порог обновлен", Toast.LENGTH_LONG);
-                    toast.show();
-                    finish();
+                    if (category != null) {
+                        category.setConstraint(value);
+                        categoryService.update(category);
+                        Toast toast = Toast.makeText(ConstraintsActivity.this,
+                                "Порог обновлен", Toast.LENGTH_LONG);
+                        toast.show();
+                        finish();
+                    } else {
+                        Toast toast = Toast.makeText(ConstraintsActivity.this,
+                                "Выберете категорию", Toast.LENGTH_LONG);
+                        toast.show();
+                    }
                 }
             }
         });
@@ -86,12 +92,18 @@ public class ConstraintsActivity extends AppCompatActivity {
         buttonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                category.setConstraint(0F);
-                categoryService.update(category);
-                Toast toast = Toast.makeText(ConstraintsActivity.this,
-                        "Порог удален", Toast.LENGTH_LONG);
-                toast.show();
-                finish();
+                if (category != null) {
+                    category.setConstraint(0F);
+                    categoryService.update(category);
+                    Toast toast = Toast.makeText(ConstraintsActivity.this,
+                            "Порог удален", Toast.LENGTH_LONG);
+                    toast.show();
+                    finish();
+                } else {
+                    Toast toast = Toast.makeText(ConstraintsActivity.this,
+                            "Выберете категорию", Toast.LENGTH_LONG);
+                    toast.show();
+                }
 
             }
         });
