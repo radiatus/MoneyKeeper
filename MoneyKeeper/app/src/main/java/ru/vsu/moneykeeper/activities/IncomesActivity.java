@@ -35,7 +35,7 @@ public class IncomesActivity extends AppCompatActivity {
 
         nameEditText = (EditText) findViewById(R.id.incomeNameEditText);
         valueEditText = (EditText) findViewById(R.id.incomeEditText);
-        button = (Button) findViewById(R.id.addCategoryButton);
+        button = (Button) findViewById(R.id.addIncomeButton);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

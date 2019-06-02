@@ -42,7 +42,7 @@ public class ExpensesActivity extends AppCompatActivity {
 
         expenseService = new ExpenseService(this);
         categoryService = new CategoryService(this);
-        category = new Category();
+        category = null;
 
         Spinner dropdown = findViewById(R.id.categoryExpenseSpinner);
         final List<Category> categoryList = categoryService.getAll();
@@ -66,7 +66,7 @@ public class ExpensesActivity extends AppCompatActivity {
         nameEditText = (EditText)findViewById(R.id.expenseNameEditText);
         valueEditText = (EditText)findViewById(R.id.expenseEditText);
 
-        button = (Button) findViewById(R.id.addConstraintButton);
+        button = (Button) findViewById(R.id.addExpenseButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,9 +82,12 @@ public class ExpensesActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(ExpensesActivity.this,
                             "Введите значение", Toast.LENGTH_LONG);
                     toast.show();
+                } else if (category == null){
+                    Toast toast = Toast.makeText(ExpensesActivity.this,
+                            "Выберете категорию", Toast.LENGTH_LONG);
+                    toast.show();
                 } else {
                     expenseService.add(new Expense(null, name, Float.valueOf(value_str), date, category));
-
                     Float sum =  calcExpenseSum();
                     if (category.getConstraint().equals(0F) || sum * 2 < category.getConstraint()){
                         Toast toast = Toast.makeText(ExpensesActivity.this,
