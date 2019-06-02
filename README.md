@@ -1,16 +1,16 @@
 # MoneyKeeper
----
+
 Мобильное приложение для контроля расходов.
 
  - radiatus - Борисов, 3 гр.
  - Drawell - Никонов, 3 гр.
 
 # Trello
----
+
 [Страница команды](https://trello.com/b/ymq1o1vV)
 
 # Документация
----
+
 - [Курсовая docx](./Documents/Project.docx)
 - [Курсовая pdf](./Documents/Project.pdf)
 - [ТЗ doc](./Documents/TZ.doc)
@@ -19,21 +19,21 @@
 - [Отчет по работе pdf](./Documents/Otchet_po_rabote.pdf)
 
 # Диаграммы
----
+
 - [Диаграммы img](./Diagrams/img/)
 - [Диаграммы src](./Diagrams/src/)
 
 # Приложение
----
+
 - [Front-End](./MoneyKeeper/)
 - [Back-End](https://github.com/Drawell/MoneyKeeperSpring)
 
 # Архитектура
----
+
 [![Архитектура](./Diagrams/img/Architecture.png)](./Diagrams/img/Architecture.png)
 
 # Swagger
----
+
 [![Swagger](https://habrastorage.org/webt/rx/oo/dk/rxoodkkmw-pkzgffxidjs-f55ag.png)](https://money-keeper-spring.herokuapp.com/swagger-ui.html)
 >Для перехода нужно кликнуть по картинке Swagger-а
 
