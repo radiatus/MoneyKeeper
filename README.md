@@ -30,8 +30,8 @@
 
 # Презентация
 
-- [PPTX](./Documents/презентация.pptx)
-- [PDF](./Documents/презентация.pdf)
+- [PPTX](./Documents/pres.pptx)
+- [PDF](./Documents/pres.pdf)
 
 # Архитектура
 
