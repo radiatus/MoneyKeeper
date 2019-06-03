@@ -28,6 +28,11 @@
 - [Front-End](./MoneyKeeper/)
 - [Back-End](https://github.com/Drawell/MoneyKeeperSpring)
 
+# Презентация
+
+- [PPTX](./Documents/pres.pptx)
+- [PDF](./Documents/pres.pdf)
+
 # Архитектура
 
 [![Архитектура](./Diagrams/img/Architecture.png)](./Diagrams/img/Architecture.png)
