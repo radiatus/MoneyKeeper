@@ -15,8 +15,8 @@
 - [Курсовая pdf](./Documents/Project.pdf)
 - [ТЗ doc](./Documents/TZ.doc)
 - [ТЗ pdf](./Documents/TZ.pdf)
-- [Отчет по работе docx](./Documents/Otchet_po_rabote.docx)
-- [Отчет по работе pdf](./Documents/Otchet_po_rabote.pdf)
+- [Отчет по обязанностям docx](./Documents/Otchet_po_rabote.docx)
+- [Отчет по обязанностям pdf](./Documents/Otchet_po_rabote.pdf)
 
 # Диаграммы
 
